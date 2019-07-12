@@ -15,7 +15,7 @@ extension URL {
     }
     
     init?(unescapedString: String) {
-        guard let url = URL(string: unescapedString.replacingOccurrences(of: " ", with: "+")) else {
+        guard let url = URL(string: unescapedString.replacingOccurrences(of: " ", with: "%20")) else {
             return nil
         }
         self = url
