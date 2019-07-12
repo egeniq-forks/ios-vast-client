@@ -188,7 +188,7 @@ extension VastXMLParser: XMLParserDelegate {
                     completeClosure?(fatalError, vm)
                 }
             case VastElements.error:
-                guard let url = URL(string: currentContent) else {
+                guard let url = URL(unescapedString: currentContent) else {
                     break
                 }
                 if currentVastAd != nil {
@@ -218,7 +218,7 @@ extension VastXMLParser: XMLParserDelegate {
             case AdElements.adTitle:
                 currentVastAd?.adTitle = currentContent
             case AdElements.impression:
-                currentVastImpression?.url = URL(string: currentContent)
+                currentVastImpression?.url = URL(unescapedString: currentContent)
                 if let vastImpression = currentVastImpression {
                     currentVastAd?.impressions.append(vastImpression)
                     currentVastImpression = nil
@@ -240,17 +240,17 @@ extension VastXMLParser: XMLParserDelegate {
                     currentVastPricing = nil
                 }
             case AdElements.survey:
-                currentSurvey?.survey = URL(string: currentContent)
+                currentSurvey?.survey = URL(unescapedString: currentContent)
                 if let survey = currentSurvey {
                     currentVastAd?.surveys.append(survey)
                     currentSurvey = nil
                 }
             case AdElements.error:
-                if let url = URL(string: currentContent) {
+                if let url = URL(unescapedString: currentContent) {
                     currentVastAd?.errors.append(url)
                 }
             case AdElements.viewableImpression, VastAdVerificationElements.viewableImpression:
-                if let url = URL(string: currentContent) {
+                if let url = URL(unescapedString: currentContent) {
                     currentVerificationViewableImpression?.url = url
                 }
                 if currentVerification != nil {
@@ -261,15 +261,15 @@ extension VastXMLParser: XMLParserDelegate {
                     currentViewableImpression = nil
                 }
             case VastViewableImpressionElements.notViewable:
-                if let url = URL(string: currentContent) {
+                if let url = URL(unescapedString: currentContent) {
                     currentViewableImpression?.notViewable.append(url)
                 }
             case VastViewableImpressionElements.viewable:
-                if let url = URL(string: currentContent) {
+                if let url = URL(unescapedString: currentContent) {
                     currentViewableImpression?.viewable.append(url)
                 }
             case VastViewableImpressionElements.viewUndetermined:
-                if let url = URL(string: currentContent) {
+                if let url = URL(unescapedString: currentContent) {
                     currentViewableImpression?.viewUndetermined.append(url)
                 }
             case AdElements.verification:
@@ -278,19 +278,19 @@ extension VastXMLParser: XMLParserDelegate {
                     currentVerification = nil
                 }
             case VastAdVerificationElements.flashResource:
-                currentResource?.url = URL(string: currentContent)
+                currentResource?.url = URL(unescapedString: currentContent)
                 if let resource = currentResource {
                     currentVerification?.flashResources.append(resource)
                     currentResource = nil
                 }
             case VastAdVerificationElements.javaScriptResource:
-                currentResource?.url = URL(string: currentContent)
+                currentResource?.url = URL(unescapedString: currentContent)
                 if let resource = currentResource {
                     currentVerification?.javaScriptResource.append(resource)
                     currentResource = nil
                 }
             case VastWrapperElements.vastAdTagUri:
-                currentWrapper?.adTagUri = URL(string: currentContent)
+                currentWrapper?.adTagUri = URL(unescapedString: currentContent)
             case AdElements.ext:
                 if let vastExtension = currentVastExtension {
                     currentVastAd?.extensions.append(vastExtension)
@@ -334,25 +334,25 @@ extension VastXMLParser: XMLParserDelegate {
                 }
                 currentAdParameters = nil
             case CreativeLinearElements.mediafile:
-                currentMediaFile?.url = URL(string: currentContent)
+                currentMediaFile?.url = URL(unescapedString: currentContent)
                 if let mediaFile = currentMediaFile {
                     currentLinearCreative?.files.mediaFiles.append(mediaFile)
                     currentMediaFile = nil
                 }
             case CreativeLinearElements.interactiveCreativeFile:
-                currentInteractiveCreativeFile?.url = URL(string: currentContent)
+                currentInteractiveCreativeFile?.url = URL(unescapedString: currentContent)
                 if let interactiveCreativeFile = currentInteractiveCreativeFile {
                     currentLinearCreative?.files.interactiveCreativeFiles.append(interactiveCreativeFile)
                     currentInteractiveCreativeFile = nil
                 }
             case CreativeLinearElements.clickthrough, CreativeLinearElements.clicktracking, CreativeLinearElements.customclick:
-                currentVideoClick?.url = URL(string: currentContent)
+                currentVideoClick?.url = URL(unescapedString: currentContent)
                 if let click = currentVideoClick {
                     currentLinearCreative?.videoClicks.append(click)
                     currentVideoClick = nil
                 }
             case CreativeLinearElements.tracking, CompanionElements.trackingevents:
-                currentTrackingEvent?.url = URL(string: currentContent)
+                currentTrackingEvent?.url = URL(unescapedString: currentContent)
                 if let trackingEvent = currentTrackingEvent {
                     if currentCompanionCreative != nil {
                         currentCompanionCreative?.trackingEvents.append(trackingEvent)
@@ -368,7 +368,7 @@ extension VastXMLParser: XMLParserDelegate {
                 }
                 currentIcon = nil
             case VastIconElements.staticResource, CompanionElements.staticResource:
-                currentStaticResource?.url = URL(string: currentContent)
+                currentStaticResource?.url = URL(unescapedString: currentContent)
                 
                 if let staticResource = currentStaticResource {
                     if currentCompanionCreative != nil {
@@ -379,21 +379,21 @@ extension VastXMLParser: XMLParserDelegate {
                 }
                 currentStaticResource = nil
             case CompanionElements.iframeResource: // TODO: add icon iFrameResource check if necessary
-                if let url = URL(string: currentContent) {
+                if let url = URL(unescapedString: currentContent) {
                     currentCompanionCreative?.iFrameResource.append(url)
                 }
             case CompanionElements.htmlResource: // TODO: add icon htmlResource check if necessary
-                if let url = URL(string: currentContent) {
+                if let url = URL(unescapedString: currentContent) {
                     currentCompanionCreative?.htmlResource.append(url)
                 }
             case VastIconElements.iconViewTracking:
-                if let url = URL(string: currentContent) {
+                if let url = URL(unescapedString: currentContent) {
                     currentIcon?.iconViewTracking.append(url)
                 }
             case IconClicksElements.iconClickThrough:
-                currentIcon?.iconClicks?.iconClickThrough = URL(string: currentContent)
+                currentIcon?.iconClicks?.iconClickThrough = URL(unescapedString: currentContent)
             case IconClicksElements.iconClickTracking:
-                currentIconClickTracking?.url = URL(string: currentContent)
+                currentIconClickTracking?.url = URL(unescapedString: currentContent)
                 if let currentIconClickTracking = currentIconClickTracking {
                     currentIcon?.iconClicks?.iconClickTracking.append(currentIconClickTracking)
                 }
@@ -406,9 +406,9 @@ extension VastXMLParser: XMLParserDelegate {
             case CompanionElements.alttext:
                 currentCompanionCreative?.altText = currentContent
             case CompanionElements.companionclickthrough:
-                currentCompanionCreative?.companionClickThrough = URL(string: currentContent)
+                currentCompanionCreative?.companionClickThrough = URL(unescapedString: currentContent)
             case CompanionElements.companionclicktracking:
-                if let url = URL(string: currentContent) {
+                if let url = URL(unescapedString: currentContent) {
                     currentCompanionCreative?.companionClickTracking.append(url)
                 }
             // TODO: external parameter - this needs to be defined outside the library

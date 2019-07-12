@@ -131,7 +131,7 @@ extension VMAPParser: XMLParserDelegate {
                     currentAdBreak = nil
                 }
             case VMAPTrackingEventElements.tracking:
-                currentTrackingEvent?.url = URL(string: currentContent)
+                currentTrackingEvent?.url = URL(unescapedString: currentContent)
                 if let event = currentTrackingEvent {
                     trackingEvents.append(event)
                     currentTrackingEvent = nil

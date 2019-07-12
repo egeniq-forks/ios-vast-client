@@ -32,7 +32,7 @@ extension VastAdCategory {
                     authorityValue = value
                 }
         }
-        guard let authority = authorityValue, let authorityUrl = URL(string: authority) else {
+        guard let authority = authorityValue, let authorityUrl = URL(unescapedString: authority) else {
             return nil
         }
         self.authority = authorityUrl

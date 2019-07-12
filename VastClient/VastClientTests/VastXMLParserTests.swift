@@ -110,6 +110,64 @@ class VastXMLParserTests: XCTestCase {
         XCTAssertEqual(model, VastModel.inlineLinearIcons)
     }
     
+    func test_sterFeedback1_URL() {
+        let url = URL(unescapedString: "https://secure-ds.serving-sys.com/resources/PROD/asset/67745/VIDEO/20181017/Lidl Bier 20_Preroll_Bevalling_verkleind_40595992813253802.MP4")
+        XCTAssertTrue(url != nil)
+    }
+    
+    func test_sterFeedback1_loadsAd() {
+        let model = self.loadVastFile(named: "Feedback1")
+        
+        let linear = model.ads.first!.creatives.first(where: { $0.linear != nil })!.linear!
+        XCTAssertTrue(linear.files.mediaFiles.count > 0)
+        XCTAssertTrue(linear.files.mediaFiles.filter { $0.url != nil}.count > 0)
+    }
+    
+    func test_sterFeedback2_loadsAd() {
+        let model = self.loadVastFile(named: "Feedback2")
+        XCTAssertTrue(model.ads.first!.creatives.first(where: { $0.linear != nil })!.linear!.files.mediaFiles.count > 0)
+    }
+    
+    func test_sterFeedback3_loadsAd() {
+        let model = self.loadVastFile(named: "Feedback3")
+        XCTAssertTrue(model.ads.first!.creatives.first(where: { $0.linear != nil })!.linear!.files.mediaFiles.count > 0)
+    }
+    
+    func test_sterFeedback11_loadsAd() {
+        let model = self.loadVastFile(named: "Feedback11")
+        XCTAssertTrue(model.ads.first!.creatives.first(where: { $0.linear != nil })!.linear!.files.mediaFiles.count > 0)
+    }
+    
+    func test_sterFeedback25_parseWrapperXML() {
+        let model = self.loadVastFile(named: "Feedback25")
+        XCTAssertTrue(model.ads.first!.type == .wrapper)
+    }
+    
+    func test_sterFeedback25_parseInlineUnwrappedXML() {
+        let model = self.loadVastFile(named: "Feedback25_unwrapped")
+        XCTAssertTrue(model.ads.first!.type == .inline)
+        let linear = model.ads.first!.creatives.first(where: { $0.linear != nil })!.linear!
+        XCTAssertTrue(linear.files.mediaFiles.count > 0)
+        XCTAssertTrue(linear.files.mediaFiles.filter { $0.url != nil}.count > 0)
+    }
+    
+    func test_sterFeedback25_loadsAd() {
+        let url = URL(string: "test://Feedback25")!
+        let expect = expectation(description: "model")
+        var model: VastModel?
+        let client = VastClient(options: VastClientOptions(wrapperLimit: 2))
+        
+        client.parseVast(withContentsOf: url, testBundle: Bundle(for: type(of: self))) { (vastModel, error) in
+            model = vastModel
+            expect.fulfill()
+        }
+        
+        waitForExpectations(timeout: 1, handler: { _ in
+            XCTAssertTrue(model != nil)
+            XCTAssertTrue(model!.ads.first!.creatives.first(where: { $0.linear != nil })!.linear!.files.mediaFiles.count > 0)
+        })
+    }
+    
     private func loadVastFile(named filename: String) -> VastModel {
         let parser = VastXMLParser()
         let bundle = Bundle(for: type(of: self))

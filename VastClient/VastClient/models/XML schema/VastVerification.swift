@@ -40,7 +40,7 @@ extension VastVerification {
                     vendorValue = value
                 }
         }
-        self.vendor = URL(string: vendorValue ?? "")
+        self.vendor = URL(unescapedString: vendorValue ?? "")
     }
 }
 

@@ -140,7 +140,7 @@ public class VastTracker {
 
         if currentTrackingCreative == nil {
             guard let vastAd = vastAds.first,
-                let linearCreative = vastAd.creatives.first?.linear, vastAd.sequence ?? 1 > 0 else {
+                let linearCreative = vastAd.firstLinearCreative, vastAd.sequence ?? 1 > 0 else {
                     trackingStatus = .complete
                     delegate?.adBreakComplete(vastTracker: self)
                     return
@@ -272,7 +272,7 @@ public class VastTracker {
 
     public func skip() throws {
         if let creative = currentTrackingCreative {
-            guard let skipOffset = creative.vastAd.creatives.first?.linear?.skipOffset?.toSeconds, skipOffset < comparisonTime else {
+            guard let skipOffset = creative.vastAd.firstLinearCreative?.skipOffset?.toSeconds, skipOffset < comparisonTime else {
                 throw TrackingError.unableToSkipAdAtThisTime
             }
             try trackEvent(.skip)
@@ -382,5 +382,11 @@ public class VastTracker {
                 .compactMap { $0.url }
             track(urls: trackingUrls, eventName: trackingEventType.rawValue.uppercased())
         }
+    }
+}
+
+fileprivate extension VastAd {
+    var firstLinearCreative: VastLinearCreative? {
+        return self.creatives.first(where: { $0.linear != nil })?.linear
     }
 }
