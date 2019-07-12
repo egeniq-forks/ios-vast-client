@@ -110,9 +110,17 @@ class VastXMLParserTests: XCTestCase {
         XCTAssertEqual(model, VastModel.inlineLinearIcons)
     }
     
+    func test_sterFeedback1_URL() {
+        let url = URL(unescapedString: "https://secure-ds.serving-sys.com/resources/PROD/asset/67745/VIDEO/20181017/Lidl Bier 20_Preroll_Bevalling_verkleind_40595992813253802.MP4")
+        XCTAssertTrue(url != nil)
+    }
+    
     func test_sterFeedback1_loadsAd() {
         let model = self.loadVastFile(named: "Feedback1")
-        XCTAssertTrue(model.ads.first!.creatives.first(where: { $0.linear != nil })!.linear!.files.mediaFiles.count > 0)
+        
+        let linear = model.ads.first!.creatives.first(where: { $0.linear != nil })!.linear!
+        XCTAssertTrue(linear.files.mediaFiles.count > 0)
+        XCTAssertTrue(linear.files.mediaFiles.filter { $0.url != nil}.count > 0)
     }
     
     func test_sterFeedback2_loadsAd() {
@@ -138,7 +146,9 @@ class VastXMLParserTests: XCTestCase {
     func test_sterFeedback25_parseInlineUnwrappedXML() {
         let model = self.loadVastFile(named: "Feedback25_unwrapped")
         XCTAssertTrue(model.ads.first!.type == .inline)
-        XCTAssertTrue(model.ads.first!.creatives.first(where: { $0.linear != nil })!.linear!.files.mediaFiles.count > 0)
+        let linear = model.ads.first!.creatives.first(where: { $0.linear != nil })!.linear!
+        XCTAssertTrue(linear.files.mediaFiles.count > 0)
+        XCTAssertTrue(linear.files.mediaFiles.filter { $0.url != nil}.count > 0)
     }
     
     func test_sterFeedback25_loadsAd() {

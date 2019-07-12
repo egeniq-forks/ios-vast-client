@@ -102,34 +102,6 @@ class VastParser {
                     }
                     
                     copiedAd.impressions.append(contentsOf: wrapperAd.impressions)
-                    
-//                    var copiedCreatives = copiedAd.creatives
-//                    for (idx, creative) in copiedCreatives.enumerated() {
-//                        var creative = creative
-//                        if idx < wrapperAd.creatives.count {
-//                            let wrapperCreative = wrapperAd.creatives[idx]
-//
-//                            // Copy values from previous wrappers
-//                            if let linear = wrapperCreative.linear {
-//                                creative.linear?.duration = linear.duration
-//                                creative.linear?.files.mediaFiles.append(contentsOf: linear.files.mediaFiles)
-//                                creative.linear?.files.interactiveCreativeFiles.append(contentsOf: linear.files.interactiveCreativeFiles)
-//                                creative.linear?.trackingEvents.append(contentsOf: linear.trackingEvents)
-//                                creative.linear?.icons.append(contentsOf: linear.icons)
-//                                creative.linear?.videoClicks.append(contentsOf: linear.videoClicks)
-//                            }
-//
-//                            if let companionAds = wrapperCreative.companionAds {
-//                                if creative.companionAds == nil {
-//                                    creative.companionAds = companionAds
-//                                } else {
-//                                    creative.companionAds?.companions.append(contentsOf: companionAds.companions)
-//                                }
-//                            }
-//                        }
-//                        copiedCreatives[idx] = creative
-//                    }
-                    
                     copiedAd.creatives.append(contentsOf: wrapperAd.creatives)
                     copiedAd.extensions.append(contentsOf: wrapperAd.extensions)
                 }

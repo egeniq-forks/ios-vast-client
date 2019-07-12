@@ -11,7 +11,14 @@ import Foundation
 extension URL {
 
     func withErrorCode(_ code: VastErrorCodes) -> URL {
-        return URL(string: self.absoluteString.decoded.replacingOccurrences(of: "[ERRORCODE]", with: "\(code.rawValue)").encoded) ?? self
+        return URL(unescapedString: self.absoluteString.decoded.replacingOccurrences(of: "[ERRORCODE]", with: "\(code.rawValue)").encoded) ?? self
+    }
+    
+    init?(unescapedString: String) {
+        guard let url = URL(string: unescapedString.replacingOccurrences(of: " ", with: "+")) else {
+            return nil
+        }
+        self = url
     }
 
 }
