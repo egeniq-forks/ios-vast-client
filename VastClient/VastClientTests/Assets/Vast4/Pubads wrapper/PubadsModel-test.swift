@@ -26,18 +26,12 @@ extension VastModel {
 
         let linear = inline.ads.first!.creatives.first!.linear
         
-        model.ads[0].creatives[0].linear?.duration = linear?.duration
-        if let mediaFiles = linear?.files.mediaFiles {
-            model.ads[0].creatives[0].linear?.files.mediaFiles.append(contentsOf: mediaFiles)
-        }
+        model.ads[0].creatives.append(contentsOf: inline.ads.first!.creatives)
         if let interactiveCreativeFiles = linear?.files.interactiveCreativeFiles {
             model.ads[0].creatives[0].linear?.files.interactiveCreativeFiles.append(contentsOf: interactiveCreativeFiles)
         }
         if let trackingEvents = linear?.trackingEvents {
             model.ads[0].creatives[0].linear?.trackingEvents.append(contentsOf: trackingEvents)
-        }
-        if let videoClicks = linear?.videoClicks {
-            model.ads[0].creatives[0].linear?.videoClicks.append(contentsOf: videoClicks)
         }
         
         return model

@@ -23,7 +23,6 @@
 		0F7B97D92077E40A0096438D /* Sequence+every.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7B97D82077E40A0096438D /* Sequence+every.swift */; };
 		0F7B97DD20782FF90096438D /* VastTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7B97DC20782FF90096438D /* VastTracker.swift */; };
 		0FC3AE4B227652C900255CA2 /* Tracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC3AE4A227652C900255CA2 /* Tracking.swift */; };
-		0FC3AE4C227652C900255CA2 /* Tracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC3AE4A227652C900255CA2 /* Tracking.swift */; };
 		0FC3AE4D227652C900255CA2 /* Tracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC3AE4A227652C900255CA2 /* Tracking.swift */; };
 		0FCD6F3021FF58B9008F42AA /* VastClient_tvOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 0FCD6F2E21FF58B9008F42AA /* VastClient_tvOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0FCD6F3421FF598E008F42AA /* VastTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7B97DC20782FF90096438D /* VastTracker.swift */; };
@@ -146,6 +145,12 @@
 		A9A3FFB621BA5B4C008DB5D6 /* TestFullVast4.xml in Resources */ = {isa = PBXBuildFile; fileRef = A9A3FFB521BA5B4C008DB5D6 /* TestFullVast4.xml */; };
 		A9A3FFB821BA5CBE008DB5D6 /* FullVast4-test.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A3FFB721BA5CBE008DB5D6 /* FullVast4-test.swift */; };
 		A9A84FEC21A3053200949C4B /* VastParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A84FEB21A3053200949C4B /* VastParser.swift */; };
+		A9E348EB22D87FE900058AFD /* Feedback2.xml in Resources */ = {isa = PBXBuildFile; fileRef = A9E348EA22D87FE900058AFD /* Feedback2.xml */; };
+		A9E348ED22D87FF700058AFD /* Feedback3.xml in Resources */ = {isa = PBXBuildFile; fileRef = A9E348EC22D87FF700058AFD /* Feedback3.xml */; };
+		A9E348EF22D87FFD00058AFD /* Feedback11.xml in Resources */ = {isa = PBXBuildFile; fileRef = A9E348EE22D87FFD00058AFD /* Feedback11.xml */; };
+		A9E348F122D8800200058AFD /* Feedback25.xml in Resources */ = {isa = PBXBuildFile; fileRef = A9E348F022D8800200058AFD /* Feedback25.xml */; };
+		A9E348F322D8807700058AFD /* Feedback1.xml in Resources */ = {isa = PBXBuildFile; fileRef = A9E348F222D8807700058AFD /* Feedback1.xml */; };
+		A9E348F522D8815E00058AFD /* Feedback25_unwrapped.xml in Resources */ = {isa = PBXBuildFile; fileRef = A9E348F422D8815E00058AFD /* Feedback25_unwrapped.xml */; };
 		C7D2FDEC220A479F0077B7DE /* VastAd.swift in Sources */ = {isa = PBXBuildFile; fileRef = A945EDF3219C5C100007A079 /* VastAd.swift */; };
 		C7D2FDED220A47A90077B7DE /* VastAdSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A945EDFB219C5C100007A079 /* VastAdSystem.swift */; };
 		C7D2FDEE220A47B40077B7DE /* VastImpression.swift in Sources */ = {isa = PBXBuildFile; fileRef = A945EE03219C5C100007A079 /* VastImpression.swift */; };
@@ -310,6 +315,12 @@
 		A9A3FFB521BA5B4C008DB5D6 /* TestFullVast4.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = TestFullVast4.xml; sourceTree = "<group>"; };
 		A9A3FFB721BA5CBE008DB5D6 /* FullVast4-test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FullVast4-test.swift"; sourceTree = "<group>"; };
 		A9A84FEB21A3053200949C4B /* VastParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VastParser.swift; sourceTree = "<group>"; };
+		A9E348EA22D87FE900058AFD /* Feedback2.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Feedback2.xml; sourceTree = "<group>"; };
+		A9E348EC22D87FF700058AFD /* Feedback3.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Feedback3.xml; sourceTree = "<group>"; };
+		A9E348EE22D87FFD00058AFD /* Feedback11.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Feedback11.xml; sourceTree = "<group>"; };
+		A9E348F022D8800200058AFD /* Feedback25.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Feedback25.xml; sourceTree = "<group>"; };
+		A9E348F222D8807700058AFD /* Feedback1.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Feedback1.xml; sourceTree = "<group>"; };
+		A9E348F422D8815E00058AFD /* Feedback25_unwrapped.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Feedback25_unwrapped.xml; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -520,6 +531,7 @@
 		A945EE36219C5C9E0007A079 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				A9E348E722D87F6800058AFD /* SterFeedback */,
 				A945EE37219C5C9E0007A079 /* Vast4 */,
 				A945EE4E219C5C9E0007A079 /* Vast3 */,
 				A945EE57219C5C9E0007A079 /* vast3.xsd */,
@@ -575,6 +587,19 @@
 				A945EE56219C5C9E0007A079 /* Inline_Linear_Tag-test3.xml */,
 			);
 			path = Vast3;
+			sourceTree = "<group>";
+		};
+		A9E348E722D87F6800058AFD /* SterFeedback */ = {
+			isa = PBXGroup;
+			children = (
+				A9E348F222D8807700058AFD /* Feedback1.xml */,
+				A9E348EA22D87FE900058AFD /* Feedback2.xml */,
+				A9E348EC22D87FF700058AFD /* Feedback3.xml */,
+				A9E348EE22D87FFD00058AFD /* Feedback11.xml */,
+				A9E348F022D8800200058AFD /* Feedback25.xml */,
+				A9E348F422D8815E00058AFD /* Feedback25_unwrapped.xml */,
+			);
+			path = SterFeedback;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -713,20 +738,26 @@
 				A945EE72219C5C9F0007A079 /* Wrapper_Tag-test3.xml in Resources */,
 				A9A3FFB621BA5B4C008DB5D6 /* TestFullVast4.xml in Resources */,
 				A945EE75219C5C9F0007A079 /* Video_Clicks_and_click_tracking-Inline-test3.xml in Resources */,
+				A9E348ED22D87FF700058AFD /* Feedback3.xml in Resources */,
 				A945EE5F219C5C9F0007A079 /* Wrapper_Tag-test.xml in Resources */,
+				A9E348F522D8815E00058AFD /* Feedback25_unwrapped.xml in Resources */,
 				A945EE6D219C5C9F0007A079 /* Ready_to_serve_Media_Files_check-test.xml in Resources */,
+				A9E348EF22D87FFD00058AFD /* Feedback11.xml in Resources */,
 				A945EE6B219C5C9F0007A079 /* Viewable_Impression-test.xml in Resources */,
 				A945EE65219C5C9F0007A079 /* No_Wrapper_Tag-test.xml in Resources */,
 				A945EE67219C5C9F0007A079 /* Inline_Simple-test.xml in Resources */,
 				A981D9FB21BEAEF100018FD8 /* Inline_linear_icons-test.xml in Resources */,
+				A9E348EB22D87FE900058AFD /* Feedback2.xml in Resources */,
 				A945EE77219C5C9F0007A079 /* vast3.xsd in Resources */,
 				A91F507E21A432AF0062198F /* Pubads_Wrapper_Model-test.xml in Resources */,
 				A945EE59219C5C9F0007A079 /* Category-test.xml in Resources */,
 				A945EE68219C5C9F0007A079 /* Inline_Linear_Tag-test.xml in Resources */,
 				A91F508021A432CF0062198F /* Pubads_Inline_Model-test.xml in Resources */,
 				A945EE61219C5C9F0007A079 /* Ad_Verification-test.xml in Resources */,
+				A9E348F322D8807700058AFD /* Feedback1.xml in Resources */,
 				A945EE63219C5C9F0007A079 /* Universal_Ad_ID-test.xml in Resources */,
 				A945EE78219C5C9F0007A079 /* vast4.xsd in Resources */,
+				A9E348F122D8800200058AFD /* Feedback25.xml in Resources */,
 				A945EE76219C5C9F0007A079 /* Inline_Linear_Tag-test3.xml in Resources */,
 				A945EE5D219C5C9F0007A079 /* Video_Clicks_and_click_tracking-Inline-test.xml in Resources */,
 				A945EE73219C5C9F0007A079 /* Event_Tracking-test3.xml in Resources */,
@@ -837,7 +868,6 @@
 				A945EE64219C5C9F0007A079 /* ReadyToServerMediaFilesCheck-test.swift in Sources */,
 				A927D2D72204753600272F70 /* VastTrackerCumulativeStartTests.swift in Sources */,
 				A927D2D0220474C900272F70 /* VastTrackerNoncumulativeTests.swift in Sources */,
-				0FC3AE4C227652C900255CA2 /* Tracking.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
