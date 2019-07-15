@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
   s.author           = { "John G. Gainfort, Jr." => "john@realeyes.com" }
   s.source           = { :git => "https://github.com/realeyes-media/ios-vast-client.git", :branch => "master", :tag => s.version }
 
-  s.ios.deployment_target = '10.0'
+  s.ios.deployment_target = '9.0'
   s.tvos.deployment_target = '10.0'
   s.swift_version = '4.2'
   s.requires_arc = true
