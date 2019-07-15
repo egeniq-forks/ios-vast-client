@@ -38,10 +38,19 @@ class VastParser {
         }
     }
     
+    @objc private func timerAction() {
+        finish(vastModel: nil, error: VastError.wrapperTimeLimitReached)
+    }
+    
     func parse(url: URL, completion: @escaping (VastModel?, Error?) -> ()) {
         self.completion = completion
-        let timer = Timer.scheduledTimer(withTimeInterval: options.timeLimit, repeats: false) { [weak self] _ in
-            self?.finish(vastModel: nil, error: VastError.wrapperTimeLimitReached)
+        let timer: Timer
+        if #available(iOS 10.0, *) {
+            timer = Timer.scheduledTimer(withTimeInterval: options.timeLimit, repeats: false) { [weak self] _ in
+                self?.finish(vastModel: nil, error: VastError.wrapperTimeLimitReached)
+            }
+        } else {
+            timer = Timer.scheduledTimer(timeInterval: options.timeLimit, target: self, selector: #selector(timerAction), userInfo: nil, repeats: false)
         }
         queue.async {
             do {
