@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
   s.homepage         = 'https://github.com/egeniq-forks/ios-vast-client'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { "John G. Gainfort, Jr." => "john@realeyes.com" }
-  s.source           = { :git => "https://github.com/egeniq-forks/ios-vast-client", :branch => "master", :tag => s.version }
+  s.source           = { :git => "https://github.com/egeniq-forks/ios-vast-client.git", :branch => "master", :tag => s.version }
 
   s.ios.deployment_target = '9.0'
   s.tvos.deployment_target = '10.0'
