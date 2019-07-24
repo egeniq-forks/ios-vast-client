@@ -241,7 +241,7 @@
 		A927D2D42204751F00272F70 /* VastTrackerNoncumulativeStartTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VastTrackerNoncumulativeStartTests.swift; sourceTree = "<group>"; };
 		A927D2D62204753600272F70 /* VastTrackerCumulativeStartTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VastTrackerCumulativeStartTests.swift; sourceTree = "<group>"; };
 		A92A8D6222E89824007930C4 /* CreativeMerger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreativeMerger.swift; sourceTree = "<group>"; };
-		A93F20A222E727E200389618 /* VastClient-NPO.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "VastClient-NPO.podspec"; path = "../VastClient-NPO.podspec"; sourceTree = "<group>"; };
+		A93F20A222E727E200389618 /* VastClient-NPO.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "VastClient-NPO.podspec"; path = "../VastClient-NPO.podspec"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		A945EDE8219C5C100007A079 /* VastCreativeParameter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VastCreativeParameter.swift; sourceTree = "<group>"; };
 		A945EDEA219C5C100007A079 /* VastModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VastModel.swift; sourceTree = "<group>"; };
 		A945EDEB219C5C100007A079 /* VastSurvey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VastSurvey.swift; sourceTree = "<group>"; };
