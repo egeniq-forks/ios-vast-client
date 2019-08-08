@@ -10,6 +10,20 @@ import Foundation
 
 struct CreativeMerger {
     static func appendOrMerge(wrapperCreatives: [VastCreative], unwrappedCreatives: [VastCreative]) -> [VastCreative] {
+        let wrapperLinearCreatives = wrapperCreatives.filter { $0.linear != nil }
+        let unwrappedLinearCreatives = unwrappedCreatives.filter { $0.linear != nil }
+        
+        let wrapperNonlinearCreatives = wrapperCreatives.filter { !wrapperLinearCreatives.contains($0) }
+        let unwrappedNonlinearCreatives = unwrappedCreatives.filter { !unwrappedLinearCreatives.contains($0) }
+        
+        let mergedLinears = appendOrMergeSingleTypeCreatives(wrapperLinearCreatives, unwrappedLinearCreatives)
+        let mergedNonlinears = appendOrMergeSingleTypeCreatives(wrapperNonlinearCreatives, unwrappedNonlinearCreatives)
+        
+        let merged = mergedLinears + mergedNonlinears
+        return merged
+    }
+    
+    fileprivate static func appendOrMergeSingleTypeCreatives(_ wrapperCreatives: [VastCreative], _ unwrappedCreatives: [VastCreative]) -> [VastCreative] {
         let uniqueWrapperCreatives = wrapperCreatives.filter { creative in
             if let sequence = creative.sequence {
                 return !unwrappedCreatives.contains(where: { $0.sequence == sequence })
