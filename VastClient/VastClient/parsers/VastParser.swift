@@ -87,37 +87,35 @@ class VastParser {
     
     func unwrap(vm: VastModel, count: Int) -> [VastAd] {
         return vm.ads.map { ad -> VastAd in
-            var copiedAd = ad
+            var wrapperAd = ad
             
-            guard ad.type == .wrapper, let wrapperUrl = ad.wrapper?.adTagUri else { return ad }
+            guard ad.type == .wrapper, let urlToUnwrap = ad.wrapper?.adTagUri else { return ad }
             
             do {
-                let wrapperModel = try internalParse(url: wrapperUrl, count: count + 1)
-                wrapperModel.ads.forEach { wrapperAd in
-                    if let adSystem = wrapperAd.adSystem {
-                        copiedAd.adSystem = adSystem
+                let unwrappedModel = try internalParse(url: urlToUnwrap, count: count + 1)
+                unwrappedModel.ads.forEach { unwrappedAd in
+                    if let adSystem = unwrappedAd.adSystem {
+                        wrapperAd.adSystem = adSystem
                     }
                     
-                    if let title = wrapperAd.adTitle, !title.isEmpty {
-                        copiedAd.adTitle = title
+                    if let title = unwrappedAd.adTitle, !title.isEmpty {
+                        wrapperAd.adTitle = title
+                    }
+                    wrapperAd.errors.append(contentsOf: unwrappedAd.errors)
+                    
+                    if unwrappedAd.type != AdType.unknown {
+                        wrapperAd.type = unwrappedAd.type
                     }
                     
-                    if !wrapperAd.errors.isEmpty {
-                        copiedAd.errors = wrapperAd.errors
-                    }
-                    
-                    if wrapperAd.type != AdType.unknown {
-                        copiedAd.type = wrapperAd.type
-                    }
-                    
-                    copiedAd.impressions.append(contentsOf: wrapperAd.impressions)
-                    copiedAd.creatives.append(contentsOf: wrapperAd.creatives)
-                    copiedAd.extensions.append(contentsOf: wrapperAd.extensions)
+                    wrapperAd.impressions.append(contentsOf: unwrappedAd.impressions)
+                    let creatives = CreativeMerger.appendOrMerge(wrapperCreatives: wrapperAd.creatives, unwrappedCreatives: unwrappedAd.creatives)
+                    wrapperAd.creatives = creatives
+                    wrapperAd.extensions.append(contentsOf: unwrappedAd.extensions)
                 }
             } catch {
                 print("Unable to unwrap wrapper")
             }
-            return copiedAd
+            return wrapperAd
         }
     }
     

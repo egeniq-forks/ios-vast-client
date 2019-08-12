@@ -23,16 +23,7 @@ extension VastModel {
         model.ads[0].type = .inline
         model.ads[0].impressions.append(contentsOf: inline.ads.first!.impressions)
         model.ads[0].extensions.append(contentsOf: inline.ads.first!.extensions)
-
-        let linear = inline.ads.first!.creatives.first!.linear
-        
-        model.ads[0].creatives.append(contentsOf: inline.ads.first!.creatives)
-        if let interactiveCreativeFiles = linear?.files.interactiveCreativeFiles {
-            model.ads[0].creatives[0].linear?.files.interactiveCreativeFiles.append(contentsOf: interactiveCreativeFiles)
-        }
-        if let trackingEvents = linear?.trackingEvents {
-            model.ads[0].creatives[0].linear?.trackingEvents.append(contentsOf: trackingEvents)
-        }
+        model.ads[0].creatives = CreativeMerger.appendOrMerge(wrapperCreatives: model.ads[0].creatives, unwrappedCreatives: inline.ads[0].creatives)
         
         return model
     }()

@@ -70,6 +70,8 @@
 		A927D2D2220474FF00272F70 /* VastTrackerAccumulativeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A927D2D1220474FF00272F70 /* VastTrackerAccumulativeTests.swift */; };
 		A927D2D52204751F00272F70 /* VastTrackerNoncumulativeStartTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A927D2D42204751F00272F70 /* VastTrackerNoncumulativeStartTests.swift */; };
 		A927D2D72204753600272F70 /* VastTrackerCumulativeStartTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A927D2D62204753600272F70 /* VastTrackerCumulativeStartTests.swift */; };
+		A92A8D6322E89824007930C4 /* CreativeMerger.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92A8D6222E89824007930C4 /* CreativeMerger.swift */; };
+		A92A8D6422E89836007930C4 /* CreativeMerger.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92A8D6222E89824007930C4 /* CreativeMerger.swift */; };
 		A945EE0E219C5C100007A079 /* VastCreativeParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A945EDE8219C5C100007A079 /* VastCreativeParameter.swift */; };
 		A945EE0F219C5C100007A079 /* VastModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A945EDEA219C5C100007A079 /* VastModel.swift */; };
 		A945EE10219C5C100007A079 /* VastSurvey.swift in Sources */ = {isa = PBXBuildFile; fileRef = A945EDEB219C5C100007A079 /* VastSurvey.swift */; };
@@ -238,7 +240,8 @@
 		A927D2D1220474FF00272F70 /* VastTrackerAccumulativeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VastTrackerAccumulativeTests.swift; sourceTree = "<group>"; };
 		A927D2D42204751F00272F70 /* VastTrackerNoncumulativeStartTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VastTrackerNoncumulativeStartTests.swift; sourceTree = "<group>"; };
 		A927D2D62204753600272F70 /* VastTrackerCumulativeStartTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VastTrackerCumulativeStartTests.swift; sourceTree = "<group>"; };
-		A93F20A222E727E200389618 /* VastClient-NPO.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "VastClient-NPO.podspec"; path = "../VastClient-NPO.podspec"; sourceTree = "<group>"; };
+		A92A8D6222E89824007930C4 /* CreativeMerger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreativeMerger.swift; sourceTree = "<group>"; };
+		A93F20A222E727E200389618 /* VastClient-NPO.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "VastClient-NPO.podspec"; path = "../VastClient-NPO.podspec"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		A945EDE8219C5C100007A079 /* VastCreativeParameter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VastCreativeParameter.swift; sourceTree = "<group>"; };
 		A945EDEA219C5C100007A079 /* VastModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VastModel.swift; sourceTree = "<group>"; };
 		A945EDEB219C5C100007A079 /* VastSurvey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VastSurvey.swift; sourceTree = "<group>"; };
@@ -406,6 +409,7 @@
 				0F7B97D02077DB4C0096438D /* VastXMLParser.swift */,
 				0F7AF07B211B60A6000AD5BB /* VMAPParser.swift */,
 				A9A84FEB21A3053200949C4B /* VastParser.swift */,
+				A92A8D6222E89824007930C4 /* CreativeMerger.swift */,
 			);
 			path = parsers;
 			sourceTree = "<group>";
@@ -790,6 +794,7 @@
 				0FC3AE4B227652C900255CA2 /* Tracking.swift in Sources */,
 				0F71436A20BDD59D0029BBB6 /* String+encode.swift in Sources */,
 				A945EE22219C5C100007A079 /* VastCreativeExtension.swift in Sources */,
+				A92A8D6322E89824007930C4 /* CreativeMerger.swift in Sources */,
 				A945EE2E219C5C100007A079 /* VMAPAdSource.swift in Sources */,
 				A945EE15219C5C100007A079 /* IconClicks.swift in Sources */,
 				0FEDAAC120AA3A62006850C8 /* TrackingError.swift in Sources */,
@@ -891,6 +896,7 @@
 				C7D2FE09220A48140077B7DE /* TrackingCreative.swift in Sources */,
 				0FCD6F5021FF59AE008F42AA /* VastError.swift in Sources */,
 				C7D2FE07220A47C60077B7DE /* VastVerification.swift in Sources */,
+				A92A8D6422E89836007930C4 /* CreativeMerger.swift in Sources */,
 				C7D2FDF2220A47C60077B7DE /* VastIcon.swift in Sources */,
 				0FCD6F5521FF59AE008F42AA /* VMAPError.swift in Sources */,
 				0FCD6F3B21FF599A008F42AA /* (null) in Sources */,
